@@ -205,7 +205,7 @@
   .chip.crit{background:var(--crit-bg);color:var(--crit-text);}
   .chip.info{background:var(--info-bg);color:var(--info-text);}
 
-  footer.legend{
+  .legend{
     display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
     padding-top:14px;border-top:1px solid var(--border);font-size:12px;color:var(--ink-2);
   }
@@ -253,6 +253,15 @@
     <div class="cards" id="cards-lch"></div>
   </section>
 
+  <div class="legend">
+    <div class="legend-keys">
+      <span class="k"><span class="sw" style="background:var(--info-text)"></span><span id="t-surplus">Surplus</span></span>
+      <span class="k"><span class="sw" style="background:var(--good-text)"></span><span id="t-normal">Normal</span></span>
+      <span class="k"><span class="sw" style="background:var(--warn-text)"></span><span id="t-tight">Tight</span></span>
+      <span class="k"><span class="sw" style="background:var(--crit-text)"></span><span id="t-short">Shortage</span></span>
+    </div>
+  </div>
+
   <section class="port reefer-section" id="reefer-section">
     <div class="port-head"><h2 class="reefer-h2">45RE Reefer Fleet — Age &amp; Brand</h2></div>
     <p class="reefer-sub">Owned fleet by build year, from the carriers’ reefer breakdown sheets. Not the same figure as Current Stock, which is units physically on hand today.</p>
@@ -263,15 +272,6 @@
     <div class="reefer-port-label">Laem Chabang <span class="code mono">THLCH</span></div>
     <div class="cards" id="reefer-lch"></div>
   </section>
-
-  <footer class="legend">
-    <div class="legend-keys">
-      <span class="k"><span class="sw" style="background:var(--info-text)"></span><span id="t-surplus">Surplus</span></span>
-      <span class="k"><span class="sw" style="background:var(--good-text)"></span><span id="t-normal">Normal</span></span>
-      <span class="k"><span class="sw" style="background:var(--warn-text)"></span><span id="t-tight">Tight</span></span>
-      <span class="k"><span class="sw" style="background:var(--crit-text)"></span><span id="t-short">Shortage</span></span>
-    </div>
-  </footer>
 
 </div>
 
