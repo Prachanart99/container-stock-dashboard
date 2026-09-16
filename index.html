@@ -1,0 +1,495 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Stock Status Sep 16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#eef3f8;
+    --surface:#ffffff;
+    --surface-2:#f4f8fb;
+    --ink:#101d2b;
+    --ink-2:#52616f;
+    --muted:#8b98a5;
+    --border:rgba(16,29,43,0.09);
+    --border-strong:rgba(16,29,43,0.16);
+    --accent:#1f6fb2;
+    --accent-ink:#ffffff;
+    --sinokor:#d1302f;
+    --sinokor-bg:#fbe4e4;
+    --heunga:#1f5fd1;
+    --heunga-bg:#e2eaf9;
+    --good-text:#0b7a0b;
+    --good-bg:#e3f7e3;
+    --warn-text:#8a5a00;
+    --warn-bg:#fff3d6;
+    --crit-text:#a12626;
+    --crit-bg:#fbe4e4;
+    --info-text:#155a92;
+    --info-bg:#e3eefb;
+    --shadow: 0 1px 2px rgba(16,29,43,0.06), 0 8px 24px -12px rgba(16,29,43,0.18);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12181f;
+      --surface:#1a222b;
+      --surface-2:#202a34;
+      --ink:#eef3f8;
+      --ink-2:#a9b6c2;
+      --muted:#7c8894;
+      --border:rgba(238,243,248,0.10);
+      --border-strong:rgba(238,243,248,0.18);
+      --accent:#4d9fdf;
+      --accent-ink:#0b1620;
+      --sinokor:#ff6b6a;
+      --sinokor-bg:#3a1717;
+      --heunga:#6d9bff;
+      --heunga-bg:#16233f;
+      --good-text:#5fd65f;
+      --good-bg:#12321a;
+      --warn-text:#ffcf6b;
+      --warn-bg:#3a2c0c;
+      --crit-text:#ff8f8f;
+      --crit-bg:#3a1717;
+      --info-text:#8ec4f5;
+      --info-bg:#132f47;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12181f;
+    --surface:#1a222b;
+    --surface-2:#202a34;
+    --ink:#eef3f8;
+    --ink-2:#a9b6c2;
+    --muted:#7c8894;
+    --border:rgba(238,243,248,0.10);
+    --border-strong:rgba(238,243,248,0.18);
+    --accent:#4d9fdf;
+    --accent-ink:#0b1620;
+    --sinokor:#ff6b6a;
+    --sinokor-bg:#3a1717;
+    --heunga:#6d9bff;
+    --heunga-bg:#16233f;
+    --good-text:#5fd65f;
+    --good-bg:#12321a;
+    --warn-text:#ffcf6b;
+    --warn-bg:#3a2c0c;
+    --crit-text:#ff8f8f;
+    --crit-bg:#3a1717;
+    --info-text:#8ec4f5;
+    --info-bg:#132f47;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding-inline:20px;
+    padding-block:24px 48px;
+  }
+  .wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:22px;}
+
+
+  .mono{font-family:"IBM Plex Mono", ui-monospace, monospace;font-variant-numeric:tabular-nums;}
+
+  header.top{
+    display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;
+    padding-bottom:16px;border-bottom:2px solid var(--border-strong);
+  }
+  .top-title-block h1{
+    margin:0;font-size:clamp(24px,4vw,34px);font-weight:700;letter-spacing:-0.01em;text-wrap:balance;
+  }
+  .top-title-block p{margin:6px 0 0;color:var(--ink-2);font-size:14px;max-width:56ch;}
+  .top-meta{
+    display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:13px;color:var(--ink-2);
+  }
+  .top-meta .date{
+    font-family:"IBM Plex Mono",monospace;font-size:20px;font-weight:600;color:var(--ink);
+  }
+  section.port{display:flex;flex-direction:column;gap:12px;}
+  .port-head{display:flex;align-items:baseline;gap:10px;}
+  .port-head h2{
+    margin:0;font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-0.01em;color:var(--accent);
+  }
+  .port-head .code{
+    font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);
+  }
+  .port-head::after{
+    content:"";flex:1;height:1px;background:var(--border);
+  }
+
+  .reefer-section{margin-top:6px;padding-top:18px;border-top:2px solid var(--border-strong);}
+  .reefer-h2{font-size:clamp(18px,2.4vw,22px) !important;}
+  .reefer-sub{margin:-6px 0 4px;font-size:12.5px;color:var(--muted);max-width:70ch;}
+  .reefer-port-label{
+    font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);
+    margin-top:4px;
+  }
+  .reefer-port-label .code{
+    font-family:"IBM Plex Mono",monospace;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);
+    margin-left:6px;
+  }
+  table.reefer{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;}
+  table.reefer th, table.reefer td{padding:5px 4px;text-align:right;white-space:nowrap;}
+  table.reefer th:first-child, table.reefer td:first-child{text-align:left;width:30%;}
+  table.reefer thead th{
+    font-size:9.5px;text-transform:uppercase;letter-spacing:.02em;color:var(--muted);font-weight:600;
+    border-bottom:1px solid var(--border);background:var(--surface-2);
+  }
+  table.reefer thead th:first-child{background:var(--surface-2);}
+  table.reefer tbody th{text-align:left;font-weight:500;color:var(--ink-2);border-top:1px solid var(--border);}
+  table.reefer tbody td{font-family:"IBM Plex Mono",monospace;color:var(--ink);border-top:1px solid var(--border);}
+  table.reefer tbody tr.reefer-total th, table.reefer tbody tr.reefer-total td{
+    border-top:1px solid var(--border-strong);font-weight:700;color:var(--ink);
+    background:var(--surface-2);padding-top:7px;padding-bottom:7px;
+  }
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:820px){ .cards{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--carrier-color, var(--border));
+    border-radius:14px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
+  }
+  .card-head{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:14px 16px 12px;border-bottom:1px solid var(--border);
+  }
+  .carrier{display:flex;align-items:center;gap:9px;}
+  .carrier .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .carrier .name{font-weight:700;font-size:15px;color:var(--carrier-color, var(--ink));}
+  .carrier .sub{font-size:11.5px;color:var(--muted);}
+  .card-head .stat{text-align:right;}
+  .card-head .stat .n{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:15px;}
+  .card-head .stat .l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+
+  .tbl-wrap{overflow-x:auto;}
+  table.stock{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;}
+  table.stock th, table.stock td{padding:5px 3px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  table.stock th:first-child, table.stock td:first-child{
+    text-align:left;background:var(--surface);width:23%;
+  }
+  table.stock thead th{
+    font-size:9.5px;text-transform:uppercase;letter-spacing:.02em;color:var(--muted);font-weight:600;
+    border-bottom:1px solid var(--border);background:var(--surface-2);
+  }
+  table.stock thead th:first-child{background:var(--surface-2);}
+  table.stock tbody th{
+    text-align:left;font-weight:500;color:var(--ink-2);font-size:11px;border-top:1px solid var(--border);
+    white-space:normal;line-height:1.25;
+  }
+  table.stock tbody td{
+    font-family:"IBM Plex Mono",monospace;color:var(--ink);border-top:1px solid var(--border);
+  }
+  table.stock tbody tr.balance th, table.stock tbody tr.balance td{
+    border-top:1px solid var(--border-strong);padding-top:9px;padding-bottom:9px;
+  }
+  table.stock tbody tr.balance th{font-weight:700;color:var(--ink);}
+  table.stock tbody tr.stock-row th, table.stock tbody tr.stock-row td{
+    background:var(--surface-2);font-size:13px;font-weight:700;color:var(--ink);
+    padding-top:8px;padding-bottom:8px;border-top:none;
+  }
+  table.stock tbody tr.stock-row th{font-weight:700;}
+  .chip{
+    display:inline-block;min-width:34px;padding:3px 7px;border-radius:6px;font-weight:600;
+  }
+  .chip.good{background:var(--good-bg);color:var(--good-text);}
+  .chip.warn{background:var(--warn-bg);color:var(--warn-text);}
+  .chip.crit{background:var(--crit-bg);color:var(--crit-text);}
+  .chip.info{background:var(--info-bg);color:var(--info-text);}
+
+  footer.legend{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding-top:14px;border-top:1px solid var(--border);font-size:12px;color:var(--ink-2);
+  }
+  .legend-keys{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .legend-keys .k{display:flex;align-items:center;gap:6px;}
+  .legend-keys .sw{width:11px;height:11px;border-radius:3px;}
+  .legend-note{max-width:64ch;font-style:italic;color:var(--muted);}
+
+  @media (max-width:480px){
+    header.top{flex-direction:column;align-items:flex-start;}
+    .top-meta{align-items:flex-start;}
+  }
+
+  @page{ size: A4 landscape; margin: 10mm; }
+  @media print{
+    body{background:#fff;padding:0;font-size:12px;}
+    .wrap{max-width:none;gap:12px;}
+    .card{box-shadow:none;}
+    .cards{gap:10px;}
+    section.port, .card{break-inside:avoid;}
+    table.stock{font-size:11px;}
+  }
+</style>
+
+<div class="wrap">
+
+
+  <header class="top">
+    <div class="top-title-block">
+      <h1 id="t-title">Container Stock Condition</h1>
+      <p id="t-subtitle">SINOKOR vs HEUNG&nbsp;A</p>
+    </div>
+    <div class="top-meta">
+      <span class="date mono" id="t-date">16 Sep 2026</span>
+    </div>
+  </header>
+
+  <section class="port" id="port-bkk">
+    <div class="port-head"><h2 id="t-bkk">Bangkok</h2><span class="code mono">THBKK</span></div>
+    <div class="cards" id="cards-bkk"></div>
+  </section>
+
+  <section class="port" id="port-lch">
+    <div class="port-head"><h2 id="t-lch">Laem Chabang</h2><span class="code mono">THLCH</span></div>
+    <div class="cards" id="cards-lch"></div>
+  </section>
+
+  <section class="port reefer-section" id="reefer-section">
+    <div class="port-head"><h2 class="reefer-h2">45RE Reefer Fleet — Age &amp; Brand</h2></div>
+    <p class="reefer-sub">Owned fleet by build year, from the carriers’ reefer breakdown sheets. Not the same figure as Current Stock, which is units physically on hand today.</p>
+
+    <div class="reefer-port-label">Bangkok <span class="code mono">THBKK</span></div>
+    <div class="cards" id="reefer-bkk"></div>
+
+    <div class="reefer-port-label">Laem Chabang <span class="code mono">THLCH</span></div>
+    <div class="cards" id="reefer-lch"></div>
+  </section>
+
+  <footer class="legend">
+    <div class="legend-keys">
+      <span class="k"><span class="sw" style="background:var(--info-text)"></span><span id="t-surplus">Surplus</span></span>
+      <span class="k"><span class="sw" style="background:var(--good-text)"></span><span id="t-normal">Normal</span></span>
+      <span class="k"><span class="sw" style="background:var(--warn-text)"></span><span id="t-tight">Tight</span></span>
+      <span class="k"><span class="sw" style="background:var(--crit-text)"></span><span id="t-short">Shortage</span></span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const TYPES = ['22GP','42GP','45GP','22RE','45RE','22UT','42UT','22PC','42PC'];
+
+const DATA = {
+  SNKO_BKK: { carrier:'SINOKOR', port:'BKK', color:'sinokor',
+    stock:[1772,2,1354,19,43,0,0,0,3],
+    epThis:[0,0,0,0,0,0,0,0,0], epNext:[0,0,0,0,0,0,0,0,0], leaseIn:[0,0,0,0,0,0,0,0,0],
+    mtReturn:[76,0,68,0,7,0,0,0,0],
+    bookThis:[283,0,235,4,15,0,0,0,0], bookNext:[448,0,211,2,29,0,0,0,0],
+    balance:[1117,2,976,13,6,0,0,0,3],
+    condition:['Normal','Normal','Normal','Normal','Tight','Short','Short','Short','Normal'] },
+  HAL_BKK: { carrier:'HEUNG A', port:'BKK', color:'heunga',
+    stock:[1654,5,1639,31,50,0,0,0,0],
+    epThis:[0,0,0,0,0,0,0,0,0], epNext:[0,0,0,0,0,0,0,0,0], leaseIn:[0,0,0,0,0,0,0,0,0],
+    mtReturn:[67,0,32,2,2,0,0,0,0],
+    bookThis:[383,0,218,8,33,0,0,0,0], bookNext:[256,0,211,5,25,0,0,0,0],
+    balance:[1082,5,1242,20,-6,0,0,0,0],
+    condition:['Normal','Normal','Surplus','Normal','Short','Short','Short','Short','Short'] },
+  SNKO_LCH: { carrier:'SINOKOR', port:'LCH', color:'sinokor',
+    stock:[1962,2,1527,8,129,1,1,1,4],
+    epThis:[0,0,0,0,0,0,0,0,0], epNext:[0,0,0,0,0,0,0,0,0], leaseIn:[0,0,0,0,0,0,0,0,0],
+    mtReturn:[106,0,128,0,0,0,0,0,0],
+    bookThis:[216,1,292,4,40,1,0,0,0], bookNext:[383,0,235,0,60,0,0,0,0],
+    balance:[1469,1,1128,4,29,0,1,1,4],
+    condition:['Surplus','Normal','Normal','Normal','Tight','Short','Normal','Normal','Normal'] },
+  HAL_LCH: { carrier:'HEUNG A', port:'LCH', color:'heunga',
+    stock:[2212,2,965,8,63,0,2,2,2],
+    epThis:[212,0,34,0,0,0,0,0,0], epNext:[0,0,0,0,0,0,0,0,0], leaseIn:[0,0,0,0,0,0,0,0,0],
+    mtReturn:[110,0,109,1,6,0,0,1,0],
+    bookThis:[242,0,265,0,34,0,0,0,0], bookNext:[278,0,242,2,18,0,0,0,0],
+    balance:[2014,2,601,7,17,0,2,3,2],
+    condition:['Surplus','Normal','Tight','Normal','Tight','Short','Normal','Normal','Normal'] },
+};
+
+const COND_CLASS = { Normal:'good', Tight:'warn', Short:'crit', Surplus:'info' };
+
+// 45RE reefer fleet by build year and brand, from the carriers' REEFER / RF SEASONAL sheets.
+const REEFER = {
+  SNKO_BKK: { carrier:'SINOKOR', color:'sinokor', rows:[
+    { year:2025, carrier:20, daikin:0, thermoking:2 },
+    { year:2023, carrier:6,  daikin:0, thermoking:0 },
+    { year:2021, carrier:6,  daikin:0, thermoking:0 },
+    { year:2020, carrier:3,  daikin:0, thermoking:0 },
+    { year:2019, carrier:3,  daikin:0, thermoking:0 },
+    { year:2016, carrier:1,  daikin:0, thermoking:0 },
+  ], total:{ carrier:39, daikin:0, thermoking:2 } },
+  HAL_BKK: { carrier:'HEUNG A', color:'heunga', rows:[
+    { year:2025, carrier:8,  daikin:0, thermoking:0 },
+    { year:2023, carrier:3,  daikin:0, thermoking:0 },
+    { year:2021, carrier:17, daikin:0, thermoking:0 },
+    { year:2020, carrier:6,  daikin:0, thermoking:0 },
+  ], total:{ carrier:34, daikin:0, thermoking:0 } },
+  SNKO_LCH: { carrier:'SINOKOR', color:'sinokor', rows:[
+    { year:2025, carrier:66, daikin:0, thermoking:0 },
+    { year:2023, carrier:13, daikin:0, thermoking:0 },
+    { year:2021, carrier:16, daikin:0, thermoking:0 },
+    { year:2020, carrier:10, daikin:0, thermoking:2 },
+    { year:2019, carrier:9,  daikin:0, thermoking:0 },
+    { year:2018, carrier:1,  daikin:0, thermoking:0 },
+    { year:2016, carrier:4,  daikin:0, thermoking:0 },
+  ], total:{ carrier:119, daikin:0, thermoking:2 } },
+  HAL_LCH: { carrier:'HEUNG A', color:'heunga', rows:[
+    { year:2025, carrier:9, daikin:0, thermoking:0 },
+    { year:2023, carrier:3, daikin:0, thermoking:0 },
+    { year:2021, carrier:4, daikin:0, thermoking:0 },
+    { year:2020, carrier:8, daikin:0, thermoking:0 },
+  ], total:{ carrier:24, daikin:0, thermoking:0 } },
+};
+
+const STRINGS = {
+  title: 'Container Stock Condition',
+  subtitle: 'SINOKOR vs HEUNG A',
+  date: '16 Sep 2026',
+  bangkok: 'Bangkok',
+  laemchabang: 'Laem Chabang',
+  unitsOnHand: 'units on hand',
+  colType: 'Type',
+  rowStock: 'Current stock',
+  rowMtReturn: 'MT return (inbound)',
+  rowBookThis: 'Booking, this wk',
+  rowBookNext: 'Booking, next wk',
+  rowBalance: 'Balance',
+  normal: 'Normal', tight: 'Tight', short: 'Shortage', surplus: 'Surplus',
+};
+
+function fmt(n){ return n.toLocaleString('en-US'); }
+
+function sum(arr){ return arr.reduce((a,b)=>a+b,0); }
+
+function buildCard(d, s){
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.style.setProperty('--carrier-color', `var(--${d.color})`);
+
+  const totalStock = sum(d.stock);
+
+  const head = document.createElement('div');
+  head.className = 'card-head';
+  head.innerHTML = `
+    <div class="carrier">
+      <span class="dot" style="background:var(--${d.color})"></span>
+      <div>
+        <div class="name">${d.carrier}</div>
+        <div class="sub">${d.port === 'BKK' ? s.bangkok : s.laemchabang}</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="n mono">${fmt(totalStock)}</div>
+      <div class="l">${s.unitsOnHand}</div>
+    </div>`;
+  card.appendChild(head);
+
+  const tblWrap = document.createElement('div');
+  tblWrap.className = 'tbl-wrap';
+  const table = document.createElement('table');
+  table.className = 'stock';
+
+  const thead = document.createElement('thead');
+  thead.innerHTML = `<tr><th>${s.colType}</th>${TYPES.map(t=>`<th>${t}</th>`).join('')}</tr>`;
+  table.appendChild(thead);
+
+  const tbody = document.createElement('tbody');
+  const rows = [
+    [s.rowStock, d.stock, 'stock-row'],
+    [s.rowMtReturn, d.mtReturn, ''],
+    [s.rowBookThis, d.bookThis, ''],
+    [s.rowBookNext, d.bookNext, ''],
+  ];
+  rows.forEach(([label, arr, cls])=>{
+    const tr = document.createElement('tr');
+    if(cls) tr.className = cls;
+    tr.innerHTML = `<th>${label}</th>${arr.map(v=>`<td>${v ? fmt(v) : '&ndash;'}</td>`).join('')}`;
+    tbody.appendChild(tr);
+  });
+
+  const balTr = document.createElement('tr');
+  balTr.className = 'balance';
+  balTr.innerHTML = `<th>${s.rowBalance}</th>${d.balance.map((v,i)=>{
+    const cls = COND_CLASS[d.condition[i]] || 'good';
+    return `<td><span class="chip ${cls}">${fmt(v)}</span></td>`;
+  }).join('')}`;
+  tbody.appendChild(balTr);
+
+  table.appendChild(tbody);
+  tblWrap.appendChild(table);
+  card.appendChild(tblWrap);
+
+  return card;
+}
+
+function buildReeferCard(d){
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.style.setProperty('--carrier-color', `var(--${d.color})`);
+
+  const head = document.createElement('div');
+  head.className = 'card-head';
+  head.innerHTML = `
+    <div class="carrier">
+      <span class="dot" style="background:var(--${d.color})"></span>
+      <div class="name">${d.carrier}</div>
+    </div>
+    <div class="stat">
+      <div class="n mono">${fmt(d.total.carrier + d.total.daikin + d.total.thermoking)}</div>
+      <div class="l">45RE units</div>
+    </div>`;
+  card.appendChild(head);
+
+  const tblWrap = document.createElement('div');
+  tblWrap.className = 'tbl-wrap';
+  const table = document.createElement('table');
+  table.className = 'reefer';
+  table.innerHTML = `<thead><tr><th>Year built</th><th>Carrier</th><th>Daikin</th><th>Thermoking</th></tr></thead>`;
+
+  const tbody = document.createElement('tbody');
+  d.rows.forEach(r=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<th>${r.year}</th><td>${r.carrier || '&ndash;'}</td><td>${r.daikin || '&ndash;'}</td><td>${r.thermoking || '&ndash;'}</td>`;
+    tbody.appendChild(tr);
+  });
+  const totalTr = document.createElement('tr');
+  totalTr.className = 'reefer-total';
+  totalTr.innerHTML = `<th>Total</th><td>${fmt(d.total.carrier)}</td><td>${fmt(d.total.daikin)}</td><td>${fmt(d.total.thermoking)}</td>`;
+  tbody.appendChild(totalTr);
+
+  table.appendChild(tbody);
+  tblWrap.appendChild(table);
+  card.appendChild(tblWrap);
+
+  return card;
+}
+
+function render(){
+  const s = STRINGS;
+
+  document.getElementById('t-title').textContent = s.title;
+  document.getElementById('t-subtitle').innerHTML = s.subtitle;
+  document.getElementById('t-date').textContent = s.date;
+  document.getElementById('t-bkk').textContent = s.bangkok;
+  document.getElementById('t-lch').textContent = s.laemchabang;
+  document.getElementById('t-normal').textContent = s.normal;
+  document.getElementById('t-tight').textContent = s.tight;
+  document.getElementById('t-short').textContent = s.short;
+  document.getElementById('t-surplus').textContent = s.surplus;
+
+  const cardsBkk = document.getElementById('cards-bkk');
+  const cardsLch = document.getElementById('cards-lch');
+  cardsBkk.replaceChildren(buildCard(DATA.SNKO_BKK, s), buildCard(DATA.HAL_BKK, s));
+  cardsLch.replaceChildren(buildCard(DATA.SNKO_LCH, s), buildCard(DATA.HAL_LCH, s));
+
+  document.getElementById('reefer-bkk').replaceChildren(buildReeferCard(REEFER.SNKO_BKK), buildReeferCard(REEFER.HAL_BKK));
+  document.getElementById('reefer-lch').replaceChildren(buildReeferCard(REEFER.SNKO_LCH), buildReeferCard(REEFER.HAL_LCH));
+}
+
+render();
+</script>
+
+</body></html>
