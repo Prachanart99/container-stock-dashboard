@@ -23,18 +23,13 @@ row or two between labels (as HEUNG A's sheet has) is handled fine.
 
 IMPORTANT — about the Normal/Tight/Short/Surplus "condition" labels:
 The daily per-carrier files above do NOT include a CONDITION row (only
-the older combined stock_status_both.xlsx did). From the 16-Sep-2026
-baseline, Short reliably means balance <= 0 — that part is safe to
-compute. Tight vs Normal vs Surplus, though, turned out NOT to follow a
-clean formula from stock+balance alone (e.g. two 45GP rows with balance
-at ~62% and ~76% of stock were classified Tight and Surplus
-respectively, while two others at ~72-74% were both Normal) — those
-calls look like they come from route-specific judgement/par levels the
-ops team keeps in their heads, not from the sheet's numbers. So this
-script only auto-labels Short; everything else defaults to Normal and
-is printed as a warning list for you to review/adjust by hand (or paste
-in the CONDIITON row from the combined workbook, if you have one for
-that day).
+the older combined stock_status_both.xlsx did). Per-type par levels
+(balance thresholds), as given by ops on 18-Sep-2026, are hardcoded in
+PAR_LEVELS below and drive the auto classification for 22GP, 42GP,
+45GP, 22RE and 45RE. The remaining types (22UT, 42UT, 22PC, 42PC) have
+no known par levels, so they still only get Short (balance <= 0)
+auto-detected and default to Normal otherwise — printed as a warning
+list for you to review/adjust by hand.
 
 Usage
 -----
@@ -53,6 +48,18 @@ import sys
 import openpyxl
 
 TYPES = ["22GP", "42GP", "45GP", "22RE", "45RE", "22UT", "42UT", "22PC", "42PC"]
+
+# Par levels given by ops (18-Sep-2026), balance thresholds per type.
+# Each entry is a list of (min_balance, label) checked high-to-low; the
+# first threshold the balance meets or exceeds wins. Types not listed
+# here have no known par levels (see classify()).
+PAR_LEVELS = {
+    "22GP": [(800, "Normal"), (500, "Tight"), (float("-inf"), "Short")],
+    "42GP": [(2, "Normal"), (1, "Tight"), (float("-inf"), "Short")],
+    "45GP": [(1000, "Surplus"), (700, "Normal"), (400, "Tight"), (float("-inf"), "Short")],
+    "22RE": [(10, "Normal"), (float("-inf"), "Short")],
+    "45RE": [(80, "Normal"), (20, "Tight"), (float("-inf"), "Short")],
+}
 
 
 def none0(v):
@@ -125,10 +132,17 @@ def extract_heunga_block(ws, title_row, next_title_row, col_start=3):
     }
 
 
-def classify_short_only(balance):
-    """The only condition label this script sets with confidence: Short = balance <= 0.
-    Everything else defaults to Normal — see the module docstring for why."""
-    return "Short" if balance <= 0 else "Normal"
+def classify(type_name, balance):
+    """Classify a type's balance using ops' PAR_LEVELS when known; otherwise
+    fall back to the only label this script can set with confidence:
+    Short = balance <= 0, everything else defaults to Normal."""
+    levels = PAR_LEVELS.get(type_name)
+    if levels is None:
+        return "Short" if balance <= 0 else "Normal"
+    for threshold, label in levels:
+        if balance >= threshold:
+            return label
+    return "Short"
 
 
 def extract_summary(sinokor_path, heunga_path):
@@ -149,9 +163,9 @@ def extract_summary(sinokor_path, heunga_path):
     review_needed = []
     for name, block in (("SNKO_BKK", snko_bkk), ("HAL_BKK", hal_bkk),
                          ("SNKO_LCH", snko_lch), ("HAL_LCH", hal_lch)):
-        block["condition"] = [classify_short_only(b) for b in block["balance"]]
+        block["condition"] = [classify(t, b) for t, b in zip(TYPES, block["balance"])]
         for t, bal, cond in zip(TYPES, block["balance"], block["condition"]):
-            if cond == "Normal" and bal > 0:
+            if t not in PAR_LEVELS and cond == "Normal" and bal > 0:
                 review_needed.append((name, t, bal))
 
     return {
