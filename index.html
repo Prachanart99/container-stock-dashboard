@@ -260,7 +260,7 @@
         <p id="t-subtitle">SINOKOR vs HEUNG&nbsp;A</p>
       </div>
       <div class="top-meta">
-        <span class="date mono" id="t-date">8 Oct 2026</span>
+        <span class="date mono" id="t-date">9 Oct 2026</span>
       </div>
     </header>
   </div>
@@ -302,29 +302,29 @@ const TYPES = ['22GP','42GP','45GP','22RE','45RE','22UT','42UT','22PC','42PC'];
 
 const DATA = {
   SNKO_BKK: { carrier:'SINOKOR', port:'BKK', color:'sinokor',
-    stock:[1585,0,1137,42,56,0,0,0,2],
-    mtReturn:[243,0,145,0,7,0,0,0,1],
-    bookThis:[251,0,134,3,20,0,0,0,0], bookNext:[596,0,302,4,21,0,0,0,0],
-    balance:[981,0,846,35,22,0,0,0,3],
-    condition:['Normal','Short','Normal','Normal','Tight','Short','Short','Short','Normal'] },
+    stock:[1556,0,1107,40,53,0,0,0,2],
+    mtReturn:[280,0,150,0,5,0,0,0,1],
+    bookThis:[757,0,379,9,36,0,0,0,0], bookNext:[305,0,212,2,20,0,0,0,0],
+    balance:[774,0,666,29,2,0,0,0,3],
+    condition:['Tight','Short','Tight','Normal','Short','Short','Short','Short','Normal'] },
   HAL_BKK: { carrier:'HEUNG A', port:'BKK', color:'heunga',
-    stock:[1763,4,1382,39,38,0,0,0,0],
-    mtReturn:[271,1,192,4,7,0,0,0,0],
-    bookThis:[206,0,172,2,16,0,0,0,0], bookNext:[283,0,205,4,13,0,0,0,0],
-    balance:[1765,5,1197,37,16,0,0,0,0],
+    stock:[1802,5,1368,40,38,0,0,0,0],
+    mtReturn:[190,0,153,6,6,0,0,0,0],
+    bookThis:[486,0,351,11,26,0,0,0,0], bookNext:[266,1,170,3,28,0,0,0,0],
+    balance:[1451,4,1000,32,-10,0,0,0,0],
     condition:['Normal','Normal','Surplus','Normal','Short','Short','Short','Short','Short'] },
   SNKO_LCH: { carrier:'SINOKOR', port:'LCH', color:'sinokor',
-    stock:[1959,1,1466,11,79,0,5,3,7],
-    mtReturn:[253,0,320,0,9,0,0,0,0],
-    bookThis:[167,0,139,1,28,0,0,0,0], bookNext:[436,0,310,4,29,0,0,0,0],
-    balance:[1689,1,1439,6,31,0,5,3,7],
-    condition:['Normal','Tight','Surplus','Short','Tight','Short','Normal','Normal','Normal'] },
+    stock:[1881,1,1473,11,79,0,5,3,9],
+    mtReturn:[208,0,255,0,2,0,0,0,0],
+    bookThis:[509,0,429,5,58,0,0,0,0], bookNext:[273,0,217,0,9,0,0,0,0],
+    balance:[1387,1,1211,6,14,0,5,3,9],
+    condition:['Normal','Tight','Surplus','Short','Short','Short','Normal','Normal','Normal'] },
   HAL_LCH: { carrier:'HEUNG A', port:'LCH', color:'heunga',
-    stock:[2192,2,1154,7,53,1,2,3,1],
-    mtReturn:[110,0,204,1,6,0,0,0,0],
-    bookThis:[259,0,155,0,20,0,1,1,1], bookNext:[307,0,292,2,36,1,1,0,0],
-    balance:[1806,2,959,6,3,0,0,2,0],
-    condition:['Normal','Normal','Normal','Short','Short','Short','Short','Normal','Short'] },
+    stock:[2147,2,1154,7,53,1,2,3,1],
+    mtReturn:[92,0,148,1,3,0,0,0,0],
+    bookThis:[584,0,411,1,48,1,1,1,0], bookNext:[237,0,125,1,15,0,1,0,0],
+    balance:[1488,2,814,6,-7,0,0,2,1],
+    condition:['Normal','Normal','Normal','Short','Short','Short','Short','Normal','Normal'] },
 };
 
 const COND_CLASS = { Normal:'good', Tight:'warn', Short:'crit', Surplus:'info' };
@@ -334,37 +334,38 @@ const REEFER = {
   SNKO_BKK: { carrier:'SINOKOR', color:'sinokor', rows:[
     { year:2025, carrier:21, daikin:0, thermoking:3 },
     { year:2023, carrier:4, daikin:0, thermoking:0 },
-    { year:2021, carrier:3, daikin:0, thermoking:0 },
-    { year:2020, carrier:3, daikin:0, thermoking:0 },
-    { year:2019, carrier:7, daikin:0, thermoking:0 },
-    { year:2018, carrier:2, daikin:0, thermoking:0 },
-    { year:2016, carrier:2, daikin:0, thermoking:0 },
+    { year:2021, carrier:4, daikin:0, thermoking:0 },
+    { year:2020, carrier:2, daikin:0, thermoking:0 },
+    { year:2019, carrier:6, daikin:0, thermoking:0 },
+    { year:2018, carrier:1, daikin:0, thermoking:0 },
+    { year:2017, carrier:1, daikin:0, thermoking:0 },
+    { year:2016, carrier:3, daikin:0, thermoking:0 },
   ], total:{ carrier:42, daikin:0, thermoking:3 } },
   SNKO_LCH: { carrier:'SINOKOR', color:'sinokor', rows:[
-    { year:2025, carrier:47, daikin:0, thermoking:0 },
-    { year:2023, carrier:9, daikin:0, thermoking:0 },
-    { year:2021, carrier:10, daikin:0, thermoking:0 },
-    { year:2020, carrier:4, daikin:0, thermoking:0 },
+    { year:2025, carrier:46, daikin:0, thermoking:0 },
+    { year:2023, carrier:8, daikin:0, thermoking:0 },
+    { year:2021, carrier:11, daikin:0, thermoking:0 },
+    { year:2020, carrier:5, daikin:0, thermoking:0 },
     { year:2019, carrier:2, daikin:0, thermoking:0 },
-  ], total:{ carrier:72, daikin:0, thermoking:0 } },
+    { year:2017, carrier:1, daikin:0, thermoking:0 },
+  ], total:{ carrier:73, daikin:0, thermoking:0 } },
   HAL_BKK: { carrier:'HEUNG A', color:'heunga', rows:[
     { year:2025, carrier:3, daikin:0, thermoking:1 },
     { year:2023, carrier:1, daikin:0, thermoking:0 },
-    { year:2021, carrier:6, daikin:0, thermoking:0 },
-    { year:2020, carrier:5, daikin:0, thermoking:0 },
-  ], total:{ carrier:15, daikin:0, thermoking:1 } },
+    { year:2021, carrier:5, daikin:0, thermoking:0 },
+    { year:2020, carrier:5, daikin:0, thermoking:1 },
+  ], total:{ carrier:14, daikin:0, thermoking:2 } },
   HAL_LCH: { carrier:'HEUNG A', color:'heunga', rows:[
-    { year:2025, carrier:8, daikin:0, thermoking:0 },
-    { year:2023, carrier:2, daikin:0, thermoking:0 },
-    { year:2021, carrier:3, daikin:0, thermoking:0 },
-    { year:2020, carrier:11, daikin:0, thermoking:1 },
-  ], total:{ carrier:24, daikin:0, thermoking:1 } },
+    { year:2025, carrier:8, daikin:0, thermoking:1 },
+    { year:2021, carrier:4, daikin:0, thermoking:0 },
+    { year:2020, carrier:9, daikin:0, thermoking:1 },
+  ], total:{ carrier:21, daikin:0, thermoking:2 } },
 };
 
 const STRINGS = {
   title: 'Container Stock Condition',
   subtitle: 'SINOKOR vs HEUNG A',
-  date: '8 Oct 2026',
+  date: '9 Oct 2026',
   bangkok: 'Bangkok',
   laemchabang: 'Laem Chabang',
   unitsOnHand: 'units on hand',
