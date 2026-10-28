@@ -299,6 +299,30 @@ def render_reefer_js(reefer):
     return "\n".join(lines)
 
 
+def keep_missing_reefer(html_text, reefer, reefer_js):
+    """If a carrier's REEFER sheet is absent today, keep that carrier's existing
+    entries from the dashboard instead of dropping them (fleet-by-year changes slowly)."""
+    order = ["SNKO_BKK", "SNKO_LCH", "HAL_BKK", "HAL_LCH"]
+    missing = [k for k in order if k not in reefer]
+    if not missing:
+        return reefer_js
+    old = re.search(r"const REEFER = \{\n([\s\S]*?)\n\};", html_text)
+    if not old:
+        return reefer_js
+    old_entries = {m.group(1): m.group(0) for m in re.finditer(
+        r"  (\w+): \{ carrier:[\s\S]*?\n  \], total:\{[^\n]*\} \},", old.group(1))}
+    new_entries = {m.group(1): m.group(0) for m in re.finditer(
+        r"  (\w+): \{ carrier:[\s\S]*?\n  \], total:\{[^\n]*\} \},", reefer_js)}
+    parts = []
+    for k in order:
+        src = new_entries.get(k) or (old_entries.get(k) if k in missing else None)
+        if src:
+            parts.append(src)
+        if k in missing:
+            print(f"Note: kept existing REEFER entry for {k} (no sheet in today's file).", file=sys.stderr)
+    return "const REEFER = {\n" + "\n".join(parts) + "\n};"
+
+
 def patch_html(html_text, data_js, reefer_js, date_str=None):
     html_text = re.sub(r"const DATA = \{[\s\S]*?\n\};", data_js, html_text, count=1)
     if reefer_js.strip() != "const REEFER = {\n};":
@@ -333,6 +357,7 @@ def main():
     if args.html:
         with open(args.html, "r", encoding="utf-8") as f:
             html_text = f.read()
+        reefer_js = keep_missing_reefer(html_text, reefer, reefer_js)
         patched = patch_html(html_text, data_js, reefer_js, date_str)
         out_path = args.out or args.html
         with open(out_path, "w", encoding="utf-8") as f:

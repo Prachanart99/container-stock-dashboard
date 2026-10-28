@@ -260,7 +260,7 @@
         <p id="t-subtitle">SINOKOR vs HEUNG&nbsp;A</p>
       </div>
       <div class="top-meta">
-        <span class="date mono" id="t-date">27 Oct 2026</span>
+        <span class="date mono" id="t-date">28 Oct 2026</span>
       </div>
     </header>
   </div>
@@ -302,29 +302,29 @@ const TYPES = ['22GP','42GP','45GP','22RE','45RE','22UT','42UT','22PC','42PC'];
 
 const DATA = {
   SNKO_BKK: { carrier:'SINOKOR', port:'BKK', color:'sinokor',
-    stock:[1459,0,800,27,20,0,1,0,1],
-    mtReturn:[398,0,238,2,18,0,0,0,0],
-    bookThis:[377,0,220,5,24,0,0,0,0], bookNext:[371,0,192,5,7,0,0,0,0],
-    balance:[1109,0,626,19,7,0,1,0,1],
+    stock:[1476,1,784,29,24,0,1,0,1],
+    mtReturn:[309,0,154,0,1,0,0,0,0],
+    bookThis:[274,0,173,5,19,0,0,0,0], bookNext:[453,1,216,5,10,0,0,0,0],
+    balance:[1058,0,549,19,-4,0,1,0,1],
     condition:['Normal','Short','Tight','Normal','Short','Short','Normal','Short','Normal'] },
   HAL_BKK: { carrier:'HEUNG A', port:'BKK', color:'heunga',
-    stock:[1470,4,1341,38,24,0,0,0,0],
-    mtReturn:[315,0,287,3,24,0,0,0,0],
-    bookThis:[230,0,191,4,36,0,0,0,0], bookNext:[263,1,159,2,29,0,0,0,0],
-    balance:[1292,3,1278,35,-17,0,0,0,0],
+    stock:[1499,4,1385,37,23,0,0,0,0],
+    mtReturn:[181,0,186,3,4,0,0,0,0],
+    bookThis:[218,0,146,3,28,0,0,0,0], bookNext:[172,1,140,2,41,0,0,0,0],
+    balance:[1290,3,1285,35,-42,0,0,0,0],
     condition:['Normal','Normal','Surplus','Normal','Short','Short','Short','Short','Short'] },
   SNKO_LCH: { carrier:'SINOKOR', port:'LCH', color:'sinokor',
-    stock:[1688,0,1241,4,47,0,5,1,7],
-    mtReturn:[270,2,253,1,12,0,2,0,7],
-    bookThis:[180,0,205,1,32,0,0,0,0], bookNext:[375,0,185,4,9,0,0,0,0],
-    balance:[1851,2,1104,0,18,0,7,1,14],
-    condition:['Normal','Normal','Surplus','Short','Short','Short','Normal','Normal','Normal'] },
+    stock:[1789,0,1261,5,44,0,5,1,7],
+    mtReturn:[198,1,213,1,10,0,1,0,7],
+    bookThis:[140,0,170,0,26,0,0,0,0], bookNext:[363,0,193,5,10,0,0,0,0],
+    balance:[1651,1,1111,1,18,0,6,1,14],
+    condition:['Normal','Tight','Surplus','Short','Short','Short','Normal','Normal','Normal'] },
   HAL_LCH: { carrier:'HEUNG A', port:'LCH', color:'heunga',
-    stock:[1967,1,1244,11,52,1,2,2,1],
-    mtReturn:[196,0,258,1,8,0,0,0,0],
-    bookThis:[316,0,160,0,17,1,1,0,0], bookNext:[161,0,73,0,7,0,1,0,0],
-    balance:[1836,1,1269,12,36,0,0,2,1],
-    condition:['Normal','Tight','Surplus','Normal','Tight','Short','Short','Normal','Normal'] },
+    stock:[2138,1,1209,11,63,1,2,3,1],
+    mtReturn:[174,0,240,1,2,0,0,0,0],
+    bookThis:[257,0,76,0,17,0,0,0,0], bookNext:[91,0,88,1,4,0,0,0,0],
+    balance:[1964,1,1285,11,44,1,2,3,1],
+    condition:['Normal','Tight','Surplus','Normal','Tight','Normal','Normal','Normal','Normal'] },
 };
 
 const COND_CLASS = { Normal:'good', Tight:'warn', Short:'crit', Surplus:'info' };
@@ -346,20 +346,20 @@ const REEFER = {
   ], total:{ carrier:49, daikin:0, thermoking:0 } },
   HAL_BKK: { carrier:'HEUNG A', color:'heunga', rows:[
     { year:2025, carrier:10, daikin:0, thermoking:1 },
-    { year:2023, carrier:2, daikin:0, thermoking:0 },
-    { year:2020, carrier:6, daikin:0, thermoking:0 },
-  ], total:{ carrier:18, daikin:0, thermoking:1 } },
+    { year:2023, carrier:1, daikin:0, thermoking:0 },
+    { year:2020, carrier:5, daikin:0, thermoking:0 },
+  ], total:{ carrier:16, daikin:0, thermoking:1 } },
   HAL_LCH: { carrier:'HEUNG A', color:'heunga', rows:[
-    { year:2025, carrier:8, daikin:0, thermoking:0 },
-    { year:2021, carrier:6, daikin:0, thermoking:0 },
-    { year:2020, carrier:4, daikin:0, thermoking:0 },
-  ], total:{ carrier:18, daikin:0, thermoking:0 } },
+    { year:2025, carrier:9, daikin:0, thermoking:0 },
+    { year:2021, carrier:9, daikin:0, thermoking:0 },
+    { year:2020, carrier:7, daikin:0, thermoking:0 },
+  ], total:{ carrier:25, daikin:0, thermoking:0 } },
 };
 
 const STRINGS = {
   title: 'Container Stock Condition',
   subtitle: 'SINOKOR vs HEUNG A',
-  date: '27 Oct 2026',
+  date: '28 Oct 2026',
   bangkok: 'Bangkok',
   laemchabang: 'Laem Chabang',
   unitsOnHand: 'units on hand',
