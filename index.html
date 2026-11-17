@@ -260,7 +260,7 @@
         <p id="t-subtitle">SINOKOR vs HEUNG&nbsp;A</p>
       </div>
       <div class="top-meta">
-        <span class="date mono" id="t-date">16 Nov 2026</span>
+        <span class="date mono" id="t-date">17 Nov 2026</span>
       </div>
     </header>
   </div>
@@ -302,28 +302,28 @@ const TYPES = ['22GP','42GP','45GP','22RE','45RE','22UT','42UT','22PC','42PC'];
 
 const DATA = {
   SNKO_BKK: { carrier:'SINOKOR', port:'BKK', color:'sinokor',
-    stock:[1441,0,640,22,34,0,4,0,2],
-    mtReturn:[256,0,151,2,7,0,0,0,0],
-    bookThis:[476,0,225,6,26,0,0,0,0], bookNext:[459,1,210,2,13,0,0,0,0],
-    balance:[762,-1,356,16,2,0,4,0,2],
-    condition:['Tight','Short','Short','Normal','Short','Short','Normal','Short','Normal'] },
+    stock:[1371,0,610,22,35,0,4,1,1],
+    mtReturn:[272,0,166,4,4,0,0,0,0],
+    bookThis:[354,0,169,7,25,0,0,0,0], bookNext:[520,0,230,2,13,0,0,0,0],
+    balance:[769,0,377,17,1,0,4,1,1],
+    condition:['Tight','Short','Short','Normal','Short','Short','Normal','Normal','Normal'] },
   HAL_BKK: { carrier:'HEUNG A', port:'BKK', color:'heunga',
-    stock:[1421,6,1433,32,27,0,0,0,0],
-    mtReturn:[215,0,180,2,11,0,0,0,0],
-    bookThis:[290,0,246,8,21,0,0,0,0], bookNext:[3,0,8,0,3,0,0,0,0],
-    balance:[1343,6,1359,26,14,0,0,0,0],
+    stock:[1392,6,1402,34,27,0,0,0,0],
+    mtReturn:[209,0,204,3,12,0,0,0,0],
+    bookThis:[245,0,192,6,16,0,0,0,0], bookNext:[50,1,75,2,5,0,0,0,0],
+    balance:[1306,5,1339,29,18,0,0,0,0],
     condition:['Normal','Normal','Surplus','Normal','Short','Short','Short','Short','Short'] },
   SNKO_LCH: { carrier:'SINOKOR', port:'LCH', color:'sinokor',
-    stock:[2294,2,1418,2,48,0,4,2,32],
-    mtReturn:[115,0,135,0,1,0,0,0,2],
-    bookThis:[316,0,380,1,25,0,0,0,1], bookNext:[419,1,268,1,29,0,0,0,0],
-    balance:[1674,1,905,0,-5,0,4,2,33],
-    condition:['Normal','Tight','Normal','Short','Short','Short','Normal','Normal','Normal'] },
+    stock:[2241,2,1407,1,60,0,4,2,32],
+    mtReturn:[154,0,199,0,7,0,0,0,0],
+    bookThis:[251,0,321,2,18,0,0,0,1], bookNext:[432,1,285,1,31,0,0,0,0],
+    balance:[1762,1,1000,-2,18,0,4,2,31],
+    condition:['Normal','Tight','Surplus','Short','Short','Short','Normal','Normal','Normal'] },
   HAL_LCH: { carrier:'HEUNG A', port:'LCH', color:'heunga',
-    stock:[1926,1,1362,13,34,0,2,2,1],
-    mtReturn:[115,0,155,2,13,0,0,0,0],
-    bookThis:[374,0,308,3,14,0,0,0,0], bookNext:[24,0,19,1,4,0,0,0,1],
-    balance:[1643,1,1190,11,29,0,2,2,0],
+    stock:[1891,1,1336,12,44,0,2,2,1],
+    mtReturn:[103,0,140,2,11,0,0,0,0],
+    bookThis:[297,0,239,1,14,0,0,0,0], bookNext:[30,0,56,1,11,0,0,0,1],
+    balance:[1667,1,1181,12,30,0,2,2,0],
     condition:['Normal','Tight','Surplus','Normal','Tight','Short','Normal','Normal','Short'] },
 };
 
@@ -345,22 +345,22 @@ const REEFER = {
     { year:2017, carrier:1, daikin:0, thermoking:0 },
   ], total:{ carrier:49, daikin:0, thermoking:0 } },
   HAL_BKK: { carrier:'HEUNG A', color:'heunga', rows:[
-    { year:2025, carrier:2, daikin:0, thermoking:1 },
-    { year:2021, carrier:2, daikin:0, thermoking:0 },
+    { year:2025, carrier:1, daikin:0, thermoking:1 },
+    { year:2021, carrier:3, daikin:0, thermoking:0 },
     { year:2020, carrier:5, daikin:0, thermoking:0 },
   ], total:{ carrier:9, daikin:0, thermoking:1 } },
   HAL_LCH: { carrier:'HEUNG A', color:'heunga', rows:[
-    { year:2025, carrier:3, daikin:0, thermoking:0 },
-    { year:2023, carrier:1, daikin:0, thermoking:0 },
+    { year:2025, carrier:5, daikin:0, thermoking:0 },
+    { year:2023, carrier:3, daikin:0, thermoking:0 },
     { year:2021, carrier:3, daikin:0, thermoking:0 },
-    { year:2020, carrier:3, daikin:0, thermoking:0 },
-  ], total:{ carrier:10, daikin:0, thermoking:0 } },
+    { year:2020, carrier:5, daikin:0, thermoking:0 },
+  ], total:{ carrier:16, daikin:0, thermoking:0 } },
 };
 
 const STRINGS = {
   title: 'Container Stock Condition',
   subtitle: 'SINOKOR vs HEUNG A',
-  date: '16 Nov 2026',
+  date: '17 Nov 2026',
   bangkok: 'Bangkok',
   laemchabang: 'Laem Chabang',
   unitsOnHand: 'units on hand',
